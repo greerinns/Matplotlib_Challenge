@@ -1,43 +1,51 @@
-# Matplotlib_Challenge
+# Matplotlib Sample
+
 ## Dependencies
-- Import dependencies
-- Using matplotlib, pandas, scipy, and numpy
-## Reading in data
-- Create filepaths
-- Read in CSV using pandas function
-- Examine with .head() displays
+- Import the necessary dependencies, including matplotlib, pandas, scipy, and numpy.
+
+## Reading in Data
+- Create filepaths to access the data files.
+- Read in the CSV data using the pandas function.
+- Examine the first few rows of the data using the `.head()` function to display a preview.
+
 ## Merging and Unique IDs
-- Merge DFs on Mouse ID
-- Use pandas function to get number of unique IDs
-- Sort by ID and timepoint
-- Use duplicated function to get duplicate IDs and grab indexes
-- Use loc to display duplicate rows
-- Drop duplicate ID using loc function
-- Show new unique values
+- Merge DataFrames on the "Mouse ID" column.
+- Use a pandas function to determine the number of unique "Mouse ID" values.
+- Sort the DataFrame by "Mouse ID" and "Timepoint" in ascending order.
+- Use the `duplicated` function to identify duplicate "Mouse ID" values and retrieve their indexes.
+- Use the `loc` function to display the rows with duplicate "Mouse ID" values.
+- Remove the duplicate "Mouse ID" using the `loc` function.
+- Display the new unique values in the "Mouse ID" column.
+
 ## Drug Regimen
 ### Regimen Stats
-- Group by drug regimen
-- Use agg function to gather summary stats
+- Group the DataFrame by "Drug Regimen."
+- Use the `agg` function to calculate summary statistics for each regimen.
+
 ### Regimen Timepoints
-- Group by drug regimen again using agg function to count timepoints for each
-- Use pandas and matplotlib to plot bar graph of Timepoints for each drug regimen
-## Male vs Female
-- Grab 'Sex' column of unique dataframe
-- Use value counts function to total each type
-- Plot as pie in matplotlib and pandas
+- Group the DataFrame by "Drug Regimen" again, using the `agg` function to count the number of timepoints for each regimen.
+- Use pandas and matplotlib to create a bar graph showing the number of timepoints for each drug regimen.
+
+## Male vs. Female
+- Extract the "Sex" column from the unique DataFrame.
+- Use the `value_counts` function to count the occurrences of each gender.
+- Create a pie chart using matplotlib and pandas to visualize the gender distribution.
+
 ## Calculate Quartiles, Find Outliers, and Create a Box Plot
-- Group mice by ID with max timepoint
-- Merge back to unique DF using inner join to keep only final tumor volume
-- Using a list to store tumor volume lists, index through the dataframe by treatment name: 'Capomulin', 'Ramicane', 'Infubinol', and 'Ceftamin'
-- Append all final tumor volumes for each treatment
-- Calculate outliers using above 3rd quartile by 1.5 x IQR and below the first by 1.5 x IQR (IQR by subtracting 3rd q by 1st q)
-- Plot as a box plot, marking the outlier in red
+- Group the mice by "Mouse ID" and select the maximum timepoint for each mouse.
+- Merge this data back into the unique DataFrame using an inner join to keep only the final tumor volume data.
+- Create a list to store tumor volume data for the four specific treatment names: 'Capomulin', 'Ramicane', 'Infubinol', and 'Ceftamin'.
+- Append all final tumor volumes for each treatment to the list.
+- Calculate potential outliers using the upper and lower bounds (1.5 times the interquartile range) for each treatment.
+- Create a box plot for the final tumor volumes, highlighting any potential outliers in red.
+
 ## Capomulin
-- Narrow unique dataframe down to Capomulin subjects
-- Grab the first mouse treated with Capomulin, and plot Tumor Vol vs Time
-- Going to the whole Capomulin subset, groupby Mouse ID and agg Tumor Volume as mean and Weight as itself
-- Plot Average Tumor Volume by weight
+- Narrow down the unique DataFrame to include only subjects treated with Capomulin.
+- Select the first mouse treated with Capomulin and create a line plot of "Tumor Volume" vs. "Timepoint."
+- For the entire Capomulin subset, group the data by "Mouse ID" and use the `agg` function to calculate the mean of "Tumor Volume" and the weight of the mice.
+- Create a scatter plot of average tumor volume vs. weight for mice treated with Capomulin.
+
 ## Linear Regression
-- Use scipy linregress to determine r, m, and b
-- Create linear regression line as y = m(weight) + b
-- Plot linear regression over plot from Capomulin section
+- Use the `scipy` library's `linregress` function to calculate the correlation coefficient (r), slope (m), and y-intercept (b).
+- Create a linear regression line using the formula y = mx + b.
+- Plot the linear regression line over the scatter plot from the Capomulin section to visualize the relationship between tumor volume and weight.
